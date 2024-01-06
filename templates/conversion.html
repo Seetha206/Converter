@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PDF Conversion</title>
+</head>
+<body>
+    <h1>PDF Conversion</h1>
+    <form action="/upload" method="post" enctype="multipart/form-data">
+        <label for="file">Choose a file:</label>
+        <input type="file" name="file" id="file" accept=".pdf, .jpg, .jpeg, .png, .gif, .bmp, .tiff, .pbm, .pgm, .ppm, .xbm, .webp, .doc, .docx, .pptx, .ppt, .xlsx, .pps, .ppsx, .odp, .xlsm, .xlsb, .xltx, .xml">
+        <button type="submit">Convert to PDF</button>
+    </form>
+    <br>
+    {% if upload_success is defined and upload_success %}
+        <a href="{{ url_for('download', filename=converted_filename) }}" download>Download</a>
+    {% endif %}
+</body>
+</html>
